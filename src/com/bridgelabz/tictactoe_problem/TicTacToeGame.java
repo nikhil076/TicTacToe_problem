@@ -2,20 +2,18 @@ package com.bridgelabz.tictactoe_problem;
 
 public class TicTacToeGame {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		initializeBoard();
 	}
 	
-	public static void initializeBoard() {
-		char[][] Board = new char[3][3];
-		for(int i =0;i<Board.length;i++)
-		{
-			for(int j=0;j<Board[0].length;j++)
+	public static void initializeBoard() 
+	{
+		char[] Board = new char[9];
+			for(int i =0;i<Board.length;i++)
 			{
-				Board[i][j]='-';
-				System.out.print(Board[i][j]);
+					Board[i]='-';
+					System.out.print(Board[i]);	
 			}
-			System.out.println();
-		}
   	}
 }
