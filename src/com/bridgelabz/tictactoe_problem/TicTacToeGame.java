@@ -34,21 +34,23 @@ public class TicTacToeGame {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("press select x or o");
 		char user_input = scanner.next().charAt(0);
-		char player ='x';
-		char computer ='y';
+		char x_value ='x';
+		char o_value ='o';
+		char player =' ';
+		char computer = ' ';
 		
-			if(user_input == player)
+			if(user_input == x_value)
 			{
-				player ='x';
+				player =x_value;
 				System.out.println("Player :"+player);
-				computer='o';
+				computer=o_value;
 				System.out.println("Computer :"+computer);
 			}
-			else if(user_input == computer)
+			else if(user_input == o_value)
 			{
-				player = 'o';
+				player = o_value;
 				System.out.println("Player :"+player);
-				computer='x';
+				computer= x_value;
 				System.out.println("Compuer :"+computer);
 			}
 			else
