@@ -2,7 +2,6 @@ package com.bridgelabz.tictactoe_problem;
 
 import java.util.Scanner;
 
-import javax.swing.border.Border;
 
 public class TicTacToeGame
 {
@@ -16,8 +15,11 @@ public class TicTacToeGame
 		
 		System.out.println("User Letter is :"+userLetter+" \nComputer Letter is :"+computerLetter);
 		printBoard();
-		int user_index = indexSelection(userInput);
-		System.out.println("the selected user index is :"+user_index);
+//		int user_index = indexSelection(userInput);
+//		System.out.println("the selected user index is :"+user_index);
+		int user_index = indexSelection();
+		checkFreeSpace(user_index,userLetter);
+		
 	}
 	
 	public static void initializeBoard() 
@@ -59,9 +61,24 @@ public class TicTacToeGame
                            + " |");
         System.out.println("|---|---|---|");
 	}
-	public static int indexSelection(Scanner matrix_value) 
+	public static int indexSelection() 
 	{
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter the index value between 1 to 9");
-		return matrix_value.nextInt();
+		int user_index_value = scanner.nextInt();
+		return user_index_value;
+	}
+	public static void checkFreeSpace(int user_selection, char Player_value)
+	{
+		if(board[user_selection]==0)
+		{
+			System.out.println(user_selection+" index is free");
+			board[user_selection] = Player_value;
+			printBoard();
+		}
+		else
+		{
+			System.out.println(user_selection+" index is not free");
+		}
 	}
 }
