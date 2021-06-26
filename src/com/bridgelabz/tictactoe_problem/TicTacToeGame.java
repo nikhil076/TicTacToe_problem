@@ -3,6 +3,8 @@ package com.bridgelabz.tictactoe_problem;
 import java.util.Random;
 import java.util.Scanner;
 
+import java.lang.reflect.Array;
+
 public class TicTacToeGame {
 	static boolean playerStarts;
 	static char[] board = new char[10];
@@ -31,7 +33,12 @@ public class TicTacToeGame {
 			} else {
 				checkFreeSpaceComputer(computerValue);
 			}
-
+			String winner =winnerCheck(userValue, computerValue);
+			if(!winner.equals(""))
+			{
+				System.out.println(winner);
+				System.exit(0);
+			}
 		}
 	}
 
@@ -44,7 +51,12 @@ public class TicTacToeGame {
 				int user_index = indexSelection(true);
 				checkFreeSpace(user_index, userValue);
 			}
-
+			String winner =winnerCheck(userValue, computerValue);
+			if(!winner.equals(""))
+			{
+				System.out.println(winner);
+				System.exit(0);
+			}
 		}
 
 	}
@@ -113,5 +125,102 @@ public class TicTacToeGame {
 			playerStarts = false;
 			System.out.println("Computer starts first ");
 		}
+	}
+	public static String winnerCheck(char userValue, char computerValue)
+	{
+		System.out.println();
+		if((Array.getChar(board, 1)==Array.getChar(board, 2)) && (Array.getChar(board, 2)==Array.getChar(board, 3)))
+		{
+			if(userValue == Array.getChar(board, 1))
+			{
+				return "Player Wins";
+			}
+			else if(computerValue == Array.getChar(board, 1))
+			{
+				return "Computer Wins";
+			}
+		}
+		else if((Array.getChar(board, 4)==Array.getChar(board, 5)) && (Array.getChar(board, 5)==Array.getChar(board, 6)))
+		{
+			if(userValue == Array.getChar(board, 4))
+			{
+				return "Player Wins";
+			}
+			else if(computerValue == Array.getChar(board, 4))
+			{
+				return "Computer Wins";
+			}
+		}
+		else if((Array.getChar(board, 7)==Array.getChar(board, 8)) && (Array.getChar(board, 8)==Array.getChar(board, 9)))
+		{
+			if(userValue == Array.getChar(board, 7))
+			{
+				return "Player Wins";
+			}
+			else if(computerValue == Array.getChar(board, 7))
+			{
+				return "Computer Wins";
+			}
+		}
+		else if((Array.getChar(board, 1)==Array.getChar(board, 4)) && (Array.getChar(board, 4)==Array.getChar(board, 7)))
+		{
+			if(userValue == Array.getChar(board, 1))
+			{
+				return "Player Wins";
+			}
+			else if(computerValue == Array.getChar(board, 1))
+			{
+				return "Computer Wins";
+			}
+		}
+		else if((Array.getChar(board, 2)==Array.getChar(board, 5)) && (Array.getChar(board, 5)==Array.getChar(board, 8)))
+		{
+			if(userValue == Array.getChar(board, 2))
+			{
+				return "Player Wins";
+			}
+			else if(computerValue == Array.getChar(board, 2))
+			{
+				return "Computer Wins";
+			}
+		}
+		else if((Array.getChar(board, 3)==Array.getChar(board, 6)) && (Array.getChar(board, 6)==Array.getChar(board, 9)))
+		{
+			if(userValue == Array.getChar(board, 3))
+			{
+				return "Player Wins";
+			}
+			else if(computerValue == Array.getChar(board, 3))
+			{
+				return "Computer Wins";
+			}
+		}
+		else if((Array.getChar(board, 1)==Array.getChar(board, 5)) && (Array.getChar(board, 5)==Array.getChar(board, 9)))
+		{
+			if(userValue == Array.getChar(board, 5))
+			{
+				return "Player Wins";
+			}
+			else if(computerValue == Array.getChar(board, 5))
+			{
+				return "Computer Wins";
+			}
+		}
+		else if((Array.getChar(board, 3)==Array.getChar(board, 5)) && (Array.getChar(board, 5)==Array.getChar(board, 7)))
+		{
+			if(userValue == Array.getChar(board, 3))
+			{
+				return "Player Wins";
+			}
+			else if(computerValue == Array.getChar(board, 3))
+			{
+				return "Computer Wins";
+			}
+		}
+		else 
+		{
+			return "Draw";
+		}
+		return "";
 	}
 }
