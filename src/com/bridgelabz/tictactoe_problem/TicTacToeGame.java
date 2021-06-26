@@ -7,53 +7,35 @@ public class TicTacToeGame {
 	public static void main(String[] args)
 	{
 		initializeBoard();
-		userSelection();
+		Scanner userInput = new Scanner(System.in);
+		char userLetter = userSelection(userInput);
+		char computerLetter =(userLetter =='X') ? 'O' : 'X';
+		
+		System.out.println("User Letter is :"+userLetter+" \nComputer Letter is :"+computerLetter);
 	}
 	
 	public static void initializeBoard() 
 	{
-	char[] Board = new char[10];
-		for(int i =1;i<Board.length;i++)
+	char[] board = new char[10];
+		for(int index =1;index<board.length;index++)
 		{
-			if(i%3!=0)
+			if(index%3!=0)
 			{
-				Board[i]='-';
-				System.out.print(Board[i]);
+				board[index]='-';
+				System.out.print(board[index]);
 			}
 			else
 			{
-				Board[i]='-';
-				System.out.print(Board[i]);
+				board[index]='-';
+				System.out.print(board[index]);
 				System.out.println();
 			}
 		}
   	}
 	
-	public static void userSelection() 
+	public static char userSelection(Scanner userInput) 
 	{
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("press select x or o");
-		char user_input = scanner.next().charAt(0);
-		char x_value ='x';
-		char o_value ='o';
-		char player =' ';
-		char computer = ' ';
-		
-			if(user_input == x_value)
-			{
-				player =x_value;
-				System.out.println("Player :"+player);
-				computer=o_value;
-				System.out.println("Computer :"+computer);
-			}
-			else if(user_input == o_value)
-			{
-				player = o_value;
-				System.out.println("Player :"+player);
-				computer= x_value;
-				System.out.println("Compuer :"+computer);
-			}
-			else
-				System.out.println("Invalid input");
-	} 
+		System.out.println("Choose the letter : ");
+		return userInput.next().toUpperCase().charAt(0);
+	}
 }
