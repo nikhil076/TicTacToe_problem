@@ -2,6 +2,8 @@ package com.bridgelabz.tictactoe_problem;
 
 import java.util.Scanner;
 
+import javax.swing.border.Border;
+
 public class TicTacToeGame
 {
 	static char[] board = new char[10];
@@ -14,6 +16,8 @@ public class TicTacToeGame
 		
 		System.out.println("User Letter is :"+userLetter+" \nComputer Letter is :"+computerLetter);
 		printBoard();
+		int user_index = indexSelection(userInput);
+		System.out.println("the selected user index is :"+user_index);
 	}
 	
 	public static void initializeBoard() 
@@ -32,14 +36,15 @@ public class TicTacToeGame
 			}
 		}
   	}
-	
+	//To select X or O for User and Computer
 	public static char userSelection(Scanner userInput) 
 	{
 		System.out.println("Choose the letter : ");
 		return userInput.next().toUpperCase().charAt(0);
 	}
-	
-	public static void printBoard() {
+	//To Print the whole Board of Game
+	public static void printBoard()
+	{
 		System.out.println("|---|---|---|");
         System.out.println("| " + board[1] + " | "
                            + board[2] + " | " + board[3]
@@ -53,5 +58,10 @@ public class TicTacToeGame
                            + board[8] + " | " + board[9]
                            + " |");
         System.out.println("|---|---|---|");
+	}
+	public static int indexSelection(Scanner matrix_value) 
+	{
+		System.out.println("Enter the index value between 1 to 9");
+		return matrix_value.nextInt();
 	}
 }
