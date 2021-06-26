@@ -15,10 +15,9 @@ public class TicTacToeGame
 		
 		System.out.println("User Letter is :"+userLetter+" \nComputer Letter is :"+computerLetter);
 		printBoard();
-//		int user_index = indexSelection(userInput);
-//		System.out.println("the selected user index is :"+user_index);
+		tossToStartFirst();
 		int user_index = indexSelection();
-		checkFreeSpace(user_index,userLetter);
+		checkFreeSpace(user_index,userLetter,computerLetter);
 		
 	}
 	
@@ -68,7 +67,7 @@ public class TicTacToeGame
 		int user_index_value = scanner.nextInt();
 		return user_index_value;
 	}
-	public static void checkFreeSpace(int user_selection, char Player_value)
+	public static void checkFreeSpace(int user_selection, char Player_value ,char computer_value)
 	{
 		if(board[user_selection]==0)
 		{
@@ -79,6 +78,23 @@ public class TicTacToeGame
 		else
 		{
 			System.out.println(user_selection+" index is not free");
+			checkFreeSpace(user_selection, Player_value, computer_value);
+		}
+	}
+	public static void tossToStartFirst()
+	{
+		int player_choice = 1;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("press '1' to toss to check who plays first ");
+		int choice = scanner.nextInt();
+		double headOrTails = Math.floor(Math.random() * 10) % 2;
+		if(headOrTails==player_choice)
+		{
+			System.out.println("player starts first ");
+		}
+		else
+		{
+			System.out.println("Computer starts first ");
 		}
 	}
 }
