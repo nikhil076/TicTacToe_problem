@@ -2,8 +2,9 @@ package com.bridgelabz.tictactoe_problem;
 
 import java.util.Scanner;
 
-public class TicTacToeGame {
-
+public class TicTacToeGame
+{
+	static char[] board = new char[10];
 	public static void main(String[] args)
 	{
 		initializeBoard();
@@ -12,6 +13,7 @@ public class TicTacToeGame {
 		char computerLetter =(userLetter =='X') ? 'O' : 'X';
 		
 		System.out.println("User Letter is :"+userLetter+" \nComputer Letter is :"+computerLetter);
+		printBoard();
 	}
 	
 	public static void initializeBoard() 
@@ -22,12 +24,10 @@ public class TicTacToeGame {
 			if(index%3!=0)
 			{
 				board[index]='-';
-				System.out.print(board[index]);
 			}
 			else
 			{
 				board[index]='-';
-				System.out.print(board[index]);
 				System.out.println();
 			}
 		}
@@ -37,5 +37,21 @@ public class TicTacToeGame {
 	{
 		System.out.println("Choose the letter : ");
 		return userInput.next().toUpperCase().charAt(0);
+	}
+	
+	public static void printBoard() {
+		System.out.println("|---|---|---|");
+        System.out.println("| " + board[1] + " | "
+                           + board[2] + " | " + board[3]
+                           + " |");
+        System.out.println("|-----------|");
+        System.out.println("| " + board[4] + " | "
+                           + board[5] + " | " + board[6]
+                           + " |");
+        System.out.println("|-----------|");
+        System.out.println("| " + board[7] + " | "
+                           + board[8] + " | " + board[9]
+                           + " |");
+        System.out.println("|---|---|---|");
 	}
 }
